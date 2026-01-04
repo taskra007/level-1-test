@@ -6,25 +6,48 @@
 <title>Heart Tap ❤️</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h2>Tap My Heart ❤️</h2>
+<!-- ===== START SCREEN ===== -->
+<div id="startScreen">
+  <h1 class="title">Tap My Heart ❤️</h1>
 
+  <div class="floating-hearts">
+    <img src="true-heart.png">
+    <img src="fake-heart.png">
+    <img src="bad-heart.png">
+    <img src="bomb.png">
+    <img src="true-heart.png">
+    <img src="fake-heart.png">
+  </div>
+
+  <button id="startBtn" class="start-anim">Start Game</button>
+</div>
+<!--hud-->
 <div id="hud">
-❤️ <span id="lives">3</span> |
-💖 <span id="score">0</span> |
-⏱ <span id="time">06:00</span>
+  ❤️ <span id="lives">3</span> |
+  💖 <span id="score">0</span> |
+  ⏱ <span id="time">06:00</span>
+  <button id="passBtn">Pass</button>
+
+  <br>
+  <button id="resetBtn">Reset</button>
+  <button id="passBtn">Pass</button>
 </div>
 
-<button id="startBtn">Start Game 💖</button>
-
+<!-- ===== GAME ===== -->
 <div id="gameArea"></div>
 
-<div id="loveText">Love You ❤️</div>
-<div id="hint">Not this… look carefully ❤️</div>
+<div id="loveText">Love You dii loosu❤️</div>
+<div id="hint">correct aa paru loosu❤️</div>
 
-<div id="endPopup"><h1 id="endMsg"></h1></div>
+<div id="endPopup">
+  <h1 id="endMsg"></h1>
+</div>
 
 <script src="script.js"></script>
+<div class="bg-hearts"></div>
+
 </body>
 </html>
