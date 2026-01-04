@@ -61,7 +61,7 @@ function spawnHeart() {
   h.style.left = Math.random() * 85 + "vw";
 h.style.top = "-70px"; // start above the screen
 h.style.animationDuration = (speed / 200) * (isMobile ? 1.5 : 1) + "s";
-
+void h.offsetWidth; // Force browser to recognize the animation on mobile
 
   let clicked = false;
 
@@ -70,7 +70,7 @@ h.style.animationDuration = (speed / 200) * (isMobile ? 1.5 : 1) + "s";
     clicked = true;
     clickHeart(type, h);
   });
-void h.offsetWidth; // Force browser to recognize the animation on mobile
+  
   h.addEventListener("animationend", () => {
     if (!clicked) {
       h.remove();
@@ -285,6 +285,7 @@ function passHearts() {
 
   if (lives <= 0) endGame();
 }
+
 
 
 
