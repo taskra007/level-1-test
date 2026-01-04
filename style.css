@@ -54,8 +54,8 @@ h2 { margin: 10px 0; }
 }
 
 @keyframes fall {
-  from { top: -70px; }
-  to { top: 100vh; }
+  from { transform: translateY(0); }
+  to { transform: translateY(110vh); }
 }
 
 #loveText {
@@ -279,5 +279,6 @@ button {
   font-size: 16px;
   z-index: 1000;
 }
+
 
 
