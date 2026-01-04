@@ -30,16 +30,14 @@ h2 { margin: 10px 0; }
 
 .heart {
   position: absolute;
-  cursor: pointer;
-  animation: fall linear forwards;
-  user-select: none;
+  width: 70px;
+  height: 70px;
   touch-action: manipulation;
-  width: 60px;
-  height: 60px;
 }
+
 .heart-img {
-  width: 60px;
-  height: 60px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   pointer-events: none;
 }
@@ -96,3 +94,183 @@ h2 { margin: 10px 0; }
   flex-direction: column;
 }
 #endPopup h1 { margin: 0; }
+/* ===== START SCREEN ===== */
+#startScreen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #ff5fa2, #ff2d7a);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  overflow: hidden;
+}
+
+/* Title */
+.title {
+  font-size: 38px;
+  margin-bottom: 40px;
+  animation: slideDown 1.2s ease;
+}
+
+/* Floating hearts */
+.floating-hearts img {
+  position: absolute;
+  width: 70px;
+  opacity: 0.8;
+  animation: float 8s infinite linear;
+}
+
+.floating-hearts img:nth-child(1) { left: 10%; animation-delay: 0s; }
+.floating-hearts img:nth-child(2) { left: 30%; animation-delay: 2s; }
+.floating-hearts img:nth-child(3) { left: 50%; animation-delay: 4s; }
+.floating-hearts img:nth-child(4) { left: 70%; animation-delay: 1s; }
+.floating-hearts img:nth-child(5) { left: 85%; animation-delay: 3s; }
+.floating-hearts img:nth-child(6) { left: 20%; animation-delay: 5s; }
+
+/* Start Button */
+.start-anim {
+  padding: 15px 40px;
+  font-size: 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  background: white;
+  color: #ff2d7a;
+  font-weight: bold;
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 20px rgba(255,255,255,0.8);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes float {
+  0% { top: 110%; transform: rotate(0deg); }
+  100% { top: -20%; transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 10px #fff; }
+  50% { transform: scale(1.1); box-shadow: 0 0 30px #fff; }
+  100% { transform: scale(1); box-shadow: 0 0 10px #fff; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+html, body {
+  height: 100%;
+}
+
+#gameArea {
+  position: absolute;
+  inset: 0;
+}
+#hud {
+  position: fixed;
+  top: 10px;
+  width: 100%;
+  z-index: 10;
+}
+#gameArea {
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+}
+body {
+  background: linear-gradient(
+    -45deg,
+    #ff5fa2,
+    #ff9fcf,
+    #ff2d7a,
+    #ff7eb3
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.bg-hearts::before {
+  content: "❤️ 💖 💘 💗 💓";
+  position: fixed;
+  inset: 0;
+  font-size: 60px;
+  opacity: 0.07;
+  animation: bgFloat 20s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes bgFloat {
+  from { transform: translateY(100%); }
+  to { transform: translateY(-100%); }
+}
+/* ================= THEMES ================= */
+
+/* 1️⃣ Dark Romantic 🌙 */
+body.theme-dark {
+  background: radial-gradient(circle at top, #2b0015, #000);
+}
+
+/* 2️⃣ Neon Pink Cyber ⚡ */
+body.theme-neon {
+  background: linear-gradient(135deg, #ff00cc, #3300ff);
+}
+
+/* 3️⃣ Cute Cartoon 🧸 */
+body.theme-cute {
+  background: linear-gradient(#ffb6d5, #ffddee);
+}
+
+/* 4️⃣ Valentine Special ❤️ */
+body.theme-valentine {
+  background: radial-gradient(circle, #ff5f9e, #ff1f6d);
+}
+#hud button {
+  margin: 6px 4px;
+  padding: 6px 14px;
+  border-radius: 15px;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#resetBtn {
+  background: white;
+  color: #ff2d7a;
+}
+
+#passBtn {
+  background: #ff2d7a;
+  color: white;
+}
+#passBtn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background: white;
+  color: #ff2d7a;
+  font-weight: bold;
+}
+* {
+  touch-action: manipulation;
+}
+button {
+  min-width: 140px;
+  min-height: 50px;
+  font-size: 18px;
+}
+#hud {
+  position: fixed;
+  top: 8px;
+  width: 100%;
+  font-size: 16px;
+  z-index: 1000;
+}
