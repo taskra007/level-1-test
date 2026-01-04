@@ -70,7 +70,7 @@ h.style.animationDuration = (speed / 200) * (isMobile ? 1.5 : 1) + "s";
     clicked = true;
     clickHeart(type, h);
   });
-
+void h.offsetWidth; // Force browser to recognize the animation on mobile
   h.addEventListener("animationend", () => {
     if (!clicked) {
       h.remove();
@@ -285,5 +285,6 @@ function passHearts() {
 
   if (lives <= 0) endGame();
 }
+
 
 
