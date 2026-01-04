@@ -1,3 +1,5 @@
+
+let isMobile = /Mobi|Android/i.test(navigator.userAgent);
 // ================== 🎵 SOUNDS ==================
 const bgSound = new Audio("sounds/bg.mp3");
 const correctSound = new Audio("sounds/correct.mp3");
@@ -49,19 +51,15 @@ function spawnHeart() {
   h.className = "heart";
 
   const r = Math.random();
-  let type =
-    r < 0.4 ? "true" :
-    r < 0.6 ? "fake" :
-    r < 0.8 ? "bad" : "bomb";
-
+  let type = r < 0.4 ? "true" : r < 0.6 ? "fake" : r < 0.8 ? "bad" : "bomb";
   h.innerHTML = `<img src="${heartImages[type]}" class="heart-img">`;
 
   if (type === "true") trueHeart = h;
 
   h.style.left = Math.random() * 85 + "vw";
-h.style.top = "-70px"; // start above the screen
-h.style.animationDuration = (speed / 200) * (isMobile ? 1.5 : 1) + "s";
-void h.offsetWidth; // Force browser to recognize the animation on mobile
+  h.style.top = "0px"; // start at top
+  h.style.animationDuration = (speed / 200) * (isMobile ? 1.5 : 1) + "s";
+  void h.offsetWidth; // Force mobile to recognize animation
 
   let clicked = false;
 
@@ -70,7 +68,7 @@ void h.offsetWidth; // Force browser to recognize the animation on mobile
     clicked = true;
     clickHeart(type, h);
   });
-  
+
   h.addEventListener("animationend", () => {
     if (!clicked) {
       h.remove();
@@ -217,16 +215,13 @@ function endGame() {
   endPopup.style.display = "flex";
   endMsg.textContent = "GAME OVER 💔";
 }
-
-// ================== 🔘 BUTTON ==================
-startBtn.addEventListener("click", startGame);
-function setTheme(theme) {
-  document.body.className = theme;
-}
 function setTheme(theme) {
   document.body.className = "";
   document.body.classList.add(theme);
 }
+// ================== 🔘 BUTTON ==================
+startBtn.addEventListener("click", startGame);
+
 const resetBtn = document.getElementById("resetBtn");
 const passBtn = document.getElementById("passBtn");
 
@@ -274,17 +269,8 @@ function passHearts() {
 
   if (lives <= 0) endGame();
 }
-function passHearts() {
-  wrongSound.currentTime = 0;
-  wrongSound.play();
 
-  document.querySelectorAll(".heart").forEach(h => h.remove());
 
-  lives--;
-  updateHUD();
-
-  if (lives <= 0) endGame();
-}
 
 
 
