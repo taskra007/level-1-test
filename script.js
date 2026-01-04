@@ -63,11 +63,14 @@ function spawnHeart() {
 
   let clicked = false;
 
-  h.addEventListener("click", () => {
-    if (clicked) return;
-    clicked = true;
-    clickHeart(type, h);
-  });
+  const tapHandler = () => {
+  if (clicked) return;
+  clicked = true;
+  clickHeart(type, h);
+};
+
+h.addEventListener("click", tapHandler);
+h.addEventListener("touchstart", tapHandler, { passive: true });
 
   h.addEventListener("animationend", () => {
     if (!clicked) {
@@ -269,6 +272,7 @@ function passHearts() {
 
   if (lives <= 0) endGame();
 }
+
 
 
 
