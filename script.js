@@ -59,7 +59,9 @@ function spawnHeart() {
   if (type === "true") trueHeart = h;
 
   h.style.left = Math.random() * 85 + "vw";
-  h.style.animationDuration = speed / 200 + "s";
+h.style.top = "-70px"; // start above the screen
+h.style.animationDuration = (speed / 200) * (isMobile ? 1.5 : 1) + "s";
+
 
   let clicked = false;
 
@@ -283,4 +285,5 @@ function passHearts() {
 
   if (lives <= 0) endGame();
 }
+
 
