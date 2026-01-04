@@ -36,7 +36,12 @@ h2 { margin: 10px 0; }
   animation-name: fall;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
-  will-change: transform, top; /* ✨ Helps mobile run the animation smoothly */
+  will-change: transform, top; /* Helps mobile performance */
+}
+
+@keyframes fall {
+  from { transform: translateY(0); }
+  to { transform: translateY(110vh); }
 }
 
 
@@ -53,10 +58,6 @@ h2 { margin: 10px 0; }
   border-radius: 50%;
 }
 
-@keyframes fall {
-  from { transform: translateY(0); }
-  to { transform: translateY(110vh); }
-}
 
 #loveText {
   position: fixed;
@@ -279,6 +280,7 @@ button {
   font-size: 16px;
   z-index: 1000;
 }
+
 
 
 
