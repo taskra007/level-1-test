@@ -42,20 +42,23 @@ h2 { margin: 10px 0; }
   /* click goes to parent */
 }
 .heart {
-   
   position: absolute;
-  width: 70px;
-  height: 70px;
-  touch-action: manipulation;
+  width: 48px;
+  height: 48px;
   animation-name: fall;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
-  will-change: transform, top; /* Helps mobile performance */
+  will-change: transform;
+  pointer-events: auto;
 }
 
 @keyframes fall {
-  from { transform: translateY(0); }
-  to { transform: translateY(110vh); }
+  from {
+    transform: translate3d(0, -60px, 0);
+  }
+  to {
+    transform: translate3d(0, 110vh, 0);
+  }
 }
 
 
@@ -294,6 +297,7 @@ button {
   font-size: 16px;
   z-index: 1000;
 }
+
 
 
 
