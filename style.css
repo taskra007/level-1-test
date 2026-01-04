@@ -6,7 +6,10 @@
 }
 
 
-
+#hud,
+#hud button {
+  pointer-events: auto;
+}
 body {
   margin: 0;
   background: linear-gradient(#ff5fa2, #ff9fcf);
@@ -36,14 +39,11 @@ h2 { margin: 10px 0; }
   width: 100%;
   height: 100%;
 }
+  /* click goes to parent */
+}
 .heart {
   pointer-events: auto;
-}
-
-.heart-img {
-  pointer-events: none; /* click goes to parent */
-}
-.heart {
+   
   position: absolute;
   width: 70px;
   height: 70px;
@@ -61,6 +61,7 @@ h2 { margin: 10px 0; }
 
 
 .heart-img {
+  pointer-events: none;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -295,6 +296,7 @@ button {
   font-size: 16px;
   z-index: 1000;
 }
+
 
 
 
