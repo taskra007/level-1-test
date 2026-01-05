@@ -52,36 +52,38 @@ function spawnHeart() {
 
   const r = Math.random();
   let type = r < 0.4 ? "true" : r < 0.6 ? "fake" : r < 0.8 ? "bad" : "bomb";
+
   h.innerHTML = `<img src="${heartImages[type]}" class="heart-img">`;
 
   if (type === "true") trueHeart = h;
 
+  // ✅ horizontal position ONLY
   h.style.left = Math.random() * 90 + "vw";
-  h.style.animationDuration = (speed / 200) * (isMobile ? 1.5 : 1) + "s";
-  void h.offsetWidth; // Force mobile to recognize animation
+
+  // ❌ DO NOT SET TOP
+  // h.style.top = "-70px";
+
+  h.style.animationDuration =
+    (speed / 200) * (isMobile ? 1.5 : 1) + "s";
 
   let clicked = false;
 
   const tapHandler = () => {
-  if (clicked) return;
-  clicked = true;
-  clickHeart(type, h);
-};
+    if (clicked) return;
+    clicked = true;
+    clickHeart(type, h);
+  };
 
-h.addEventListener("click", tapHandler);
-h.addEventListener("touchstart", tapHandler, { passive: true });
+  h.addEventListener("click", tapHandler);
+  h.addEventListener("touchstart", tapHandler, { passive: true });
 
   h.addEventListener("animationend", () => {
-    if (!clicked) {
-      h.remove();
-      missSound.currentTime = 0;
-      missSound.play();
-      if (type === "true") increaseSpeed();
-    }
+    if (!clicked) h.remove();
   });
 
   gameArea.appendChild(h);
 }
+
 
 // ================== 🖱 CLICK HEART ==================
 function clickHeart(type, h) {
@@ -271,6 +273,7 @@ function passHearts() {
 
   if (lives <= 0) endGame();
 }
+
 
 
 
