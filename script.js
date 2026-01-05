@@ -57,7 +57,6 @@ function spawnHeart() {
   if (type === "true") trueHeart = h;
 
   h.style.left = Math.random() * 90 + "vw";
-  h.style.top = "-70px"; // start at top
   h.style.animationDuration = (speed / 200) * (isMobile ? 1.5 : 1) + "s";
   void h.offsetWidth; // Force mobile to recognize animation
 
@@ -272,6 +271,7 @@ function passHearts() {
 
   if (lives <= 0) endGame();
 }
+
 
 
 
