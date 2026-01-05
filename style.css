@@ -44,13 +44,15 @@ h2 { margin: 10px 0; }
 /* Falling heart container */
 .heart {
   position: absolute;
-  width: 32px;          /* ⬅ smaller size */
-  height: 32px;
-  animation-name: fall;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
+  width: 30px;
+  height: 30px;
+  left: 0;
+  top: 0;
+  transform: translateY(-60px);
+  animation: fall 6s linear forwards;
   pointer-events: auto;
 }
+
 
 /* Image inside heart */
 .heart-img {
@@ -62,10 +64,13 @@ h2 { margin: 10px 0; }
 }
 
 @keyframes fall {
-  from { top: -70px; }
-  to { top: 100vh; }
+  from {
+    transform: translateY(-60px);
+  }
+  to {
+    transform: translateY(110vh);
+  }
 }
-
 
 .glow {
   box-shadow: 0 0 20px yellow, 0 0 40px gold;
@@ -296,6 +301,7 @@ button {
   font-size: 16px;
   z-index: 1000;
 }
+
 
 
 
