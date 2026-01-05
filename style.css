@@ -53,12 +53,8 @@ h2 { margin: 10px 0; }
 }
 
 @keyframes fall {
-  from {
-    transform: translate3d(0, -60px, 0);
-  }
-  to {
-    transform: translate3d(0, 110vh, 0);
-  }
+  from { top: -70px; }
+  to { top: 100vh; }
 }
 
 
@@ -297,6 +293,7 @@ button {
   font-size: 16px;
   z-index: 1000;
 }
+
 
 
 
