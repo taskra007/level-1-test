@@ -35,17 +35,16 @@ h2 { margin: 10px 0; }
 }
 
   /* click goes to parent */
-}
 /* Falling heart container */
 /* ===== FIXED FALLING HEART ===== */
 .heart {
   position: absolute;
-  width: 32px !important;
-  height: 32px !important;
-  min-width: 32px;
-  min-height: 32px;
-  max-width: 32px;
-  max-height: 32px;
+  width: 62px !important;
+  height: 60px !important;
+  min-width: 62px;
+  min-height: 62px;
+  max-width: 62px;
+  max-height: 62px;
 
   left: 0;
   top: 0;
@@ -306,6 +305,7 @@ button {
   font-size: 16px;
   z-index: 1000;
 }
+
 
 
 
