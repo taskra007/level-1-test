@@ -185,9 +185,11 @@ html, body {
 }
 
 #gameArea {
-  position: absolute;
+  position: fixed;
   inset: 0;
+  overflow: hidden;
 }
+
 #hud {
   position: fixed;
   top: 10px;
@@ -294,6 +296,7 @@ button {
   font-size: 16px;
   z-index: 1000;
 }
+
 
 
 
