@@ -30,7 +30,7 @@ const endMsg = document.getElementById("endMsg");
 let score = 0;
 let lives = 3;
 let timeLeft = 360;
-let speed = 900;
+let speed = 1500;
 let spawnInt = null;
 let timerInt = null;
 let trueHeart = null;
@@ -88,7 +88,7 @@ function spawnHeart() {
 // ================== 🖱 CLICK HEART ==================
 function clickHeart(type, h) {
   if (type === "true") {
-    score += 2.5;
+    score += 1;
     correctSound.currentTime = 0;
     correctSound.play();
     showLove();
@@ -273,6 +273,7 @@ function passHearts() {
 
   if (lives <= 0) endGame();
 }
+
 
 
 
