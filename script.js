@@ -244,20 +244,13 @@ function resetGame() {
 
   updateHUD();
   timeEl.textContent = "06:00";
+  endPopup.style.display = "none";
+
+  bgSound.currentTime = 0;
+  bgSound.play().catch(()=>{});
 
   spawnInt = setInterval(spawnHeart, speed);
   timerInt = setInterval(updateTime, 1000);
-}
-function passHearts() {
-  const hearts = document.querySelectorAll(".heart");
-
-  hearts.forEach(h => h.remove());
-
-  // penalty for passing
-  lives--;
-  updateHUD();
-
-  if (lives <= 0) endGame();
 }
 let passCooldown = false;
 
@@ -274,6 +267,11 @@ function passHearts() {
   if (lives <= 0) endGame();
 }
 
+const closeBtn = document.getElementById("closeBtn");
+
+closeBtn.addEventListener("click", () => {
+  window.location.href = "https://taskra007.github.io/gamelove/";
+});
 
 
 
