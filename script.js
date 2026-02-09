@@ -91,7 +91,7 @@ function clickHeart(type, h) {
     score += 1;
     correctSound.currentTime = 0;
     correctSound.play();
-    showLove();
+    showLoveEffect();
   } else if (type === "fake") {
     wrongSound.currentTime = 0;
     wrongSound.play();
@@ -274,6 +274,20 @@ closeBtn.addEventListener("click", () => {
 });
 
 
+const loveEffect = document.getElementById("loveEffect");
+
+function showLoveEffect() {
+  loveEffect.style.transform = "translate(-50%, -50%) scale(0)";
+  loveEffect.style.display = "block";
+
+  void loveEffect.offsetWidth;
+
+  loveEffect.style.transform = "translate(-50%, -50%) scale(1)";
+
+  setTimeout(() => {
+    loveEffect.style.display = "none";
+  }, 1200);
+}
 
 
 
