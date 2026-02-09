@@ -306,6 +306,64 @@ button {
   z-index: 1000;
 }
 
+#loveEffect {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  text-align: center;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.draw-heart {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  transform: rotate(-45deg);
+  background: red;
+  animation: drawHeart 1s ease forwards;
+}
+
+.draw-heart::before,
+.draw-heart::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: red;
+  border-radius: 50%;
+}
+
+.draw-heart::before {
+  top: -30px;
+  left: 0;
+}
+
+.draw-heart::after {
+  left: 30px;
+  top: 0;
+}
+
+.love-msg {
+  margin-top: 15px;
+  font-size: 24px;
+  color: hotpink;
+  font-weight: bold;
+  animation: fadeText 1.2s ease forwards;
+}
+
+/* Animations */
+@keyframes drawHeart {
+  0% { transform: rotate(-45deg) scale(0); }
+  60% { transform: rotate(-45deg) scale(1.2); }
+  100% { transform: rotate(-45deg) scale(1); }
+}
+
+@keyframes fadeText {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
 
 
 
